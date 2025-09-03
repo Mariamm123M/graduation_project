@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:garduation_project/login_screen.dart';
 import 'package:garduation_project/update_profile.dart';
 import 'onboarding.dart';
 
@@ -11,14 +13,21 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData.dark(),
-      home: OnboardingScreen(),
-      routes: {
-        '/onboarding': (context) => OnboardingScreen(),
-        '/update_profile': (context) => UpdateProfileScreen(),
-      },
+    return ScreenUtilInit(
+      designSize: const Size(430, 932),
+      minTextAdapt: true,
+      splitScreenMode: true,
+      child: MaterialApp(
+      
+        debugShowCheckedModeBanner: false,
+        theme: ThemeData.dark(),
+        home: OnboardingScreen(),
+        routes: {
+          LoginScreen.routeName:(context)=>LoginScreen(),
+          '/onboarding': (context) => OnboardingScreen(),
+          '/update_profile': (context) => UpdateProfileScreen(),
+        },
+      ),
     );
   }
 }
