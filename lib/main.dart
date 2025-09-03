@@ -13,9 +13,12 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Movie Onboarding',
       theme: ThemeData.dark(),
-      home: UpdateProfileScreen(), // Start with onboarding
+      home: OnboardingScreen(),
+      routes: {
+        '/onboarding': (context) => OnboardingScreen(),
+        '/update_profile': (context) => UpdateProfileScreen(),
+      },
     );
   }
 }
